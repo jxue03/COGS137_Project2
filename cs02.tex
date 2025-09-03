@@ -1,0 +1,1163 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={CS02 - Predicting Annual Air Pollution},
+  pdfauthor={Jiayi Xue, Nick Liu, Roxana Chen, Sehee Kim, Jorge Ramos},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CS02 - Predicting Annual Air Pollution}
+\author{Jiayi Xue, Nick Liu, Roxana Chen, Sehee Kim, Jorge Ramos}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\subsection{Introduction}\label{introduction}
+
+\subsection{Background}\label{background}
+
+With health impacts such as asthma, lung function, low birthweight, and
+viral infection being globally widespread, air pollution is at fifth
+place for global risk factors by total number of deaths from all causes
+in 2017 \footnote{\url{https://www.stateofglobalair.org/sites/default/files/soga_2019_report.pdf}}.
+With particles as small as 0.43 micrometers reaching into the human
+respiratory system, it is extremely difficult to catch visible effects
+until it is too late. This awareness has been inconsistent throughout
+the world, with some countries exceeding the World Health Organization
+(WHO) guideline for healthy air while other countries such as Africa and
+Asia displaying extremely poor air quality \footnote{\url{https://www.stateofglobalair.org/sites/default/files/soga_2019_fact_sheet.pdf}}.
+Despite the fact that air quality has improved throughout time in the
+United States, it is still a major health risk. With air pollution
+monitors being sparsely spread throughout the contiguous United States,
+this may lead to inaccurate readings in significant regions often
+minimizing our knowledge on the relationship between air pollution and
+its health impacts. To reduce this gap, data from these monitors along
+with multiple external factors that manipulate air pollution
+concentration (urbanization, population density, road length, emissions,
+etc.,) is taken into account to make further analysis. Taking all these
+factors into consideration, \textbf{with what accuracy can we predict US
+annual average air pollution concentration?} Depending on this accuracy,
+we can take efficient and practical measures to avoid prominent health
+issues while raising awareness.
+
+Extending, \textbf{can we find a more parsimonious model that we can
+utilize for various situations such as not having all the variables?}
+Occam's Razor states that with a model of multiple predictors, it is
+best to minimize the amount of predictors in order to improve efficiency
+while maintaining accuracy: a parsimonious model. With this principle
+and using feature selection, our team found another model that was more
+practical and efficient to use when predicting air pollution
+concentration. Specifically, we can still find the concentration for
+different areas even when we do not and cannot measure all the
+predictors.
+
+We were given 876 monitors in the US with 48 various observations,
+explained by the table below. Note that although we are solely measuring
+fine particulate matter (PM\_2.5), there are three other major types of
+air pollutants - gaseous, dust, and biological - and three other sizes
+of particulate pollution - coarse and large coarse. These are all types
+of pollution that significantly impact our health and should frequently
+be kept in mind.
+
+\textbf{This is our data variables and their description}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2805}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7195}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+id & monitor number (country number before the decimal, monitor number
+after the decimal) \\
+fips & federal information processing standard number for the country
+where the monitor is located \\
+lat & latitude of the monitor in degrees \\
+lon & longitude of the monitor in degrees \\
+state & state where the monitor is located \\
+county & county where the monitor is located \\
+city & city where the monitor is located \\
+CMAQ & estimated values of air pollution from Community Multiscale Air
+Quality, a monitoring system that uses chemistry and weather data to
+predict the air pollution \\
+zcta & Zip Code Tabulation Area where the monitor is located (2010) \\
+zcta\_area & land area of the zip code area in meters squared (2010) \\
+zcta\_pop & population in the zip code area (2010) \\
+country\_area & land area of the county of the monitor in meters
+squared \\
+country\_pop & population of the county of the monitor \\
+imp\_a(radius around the monitor) & impervious surface measure such as
+roads, concrete, parking lots, and buildings as a measure of
+development \\
+Log\_dist\_to\_prisec & log (natural log) distance to a primary or
+secondary road from the monitor \\
+log\_pri\_length\_(radius around the monitor & count of primary road
+length in meters in a circle in various radius \\
+log\_prisec\_length\_(radius around the monitor) & count of primary and
+secondary road length in meters in a circle in various radius \\
+log\_nei\_2008\_pm25\_sum\_(radius of distance around the monitor) &
+tons of emissions from major sources database (annual data) sum of all
+sources within a circle in various radius meters of distance around the
+monitor \\
+popdens\_zcta & population density (number of people per kilometer
+squared area of zcta) \\
+nohs & percentage of people in zcta area where the monitor is that do
+not have a high school degree \\
+somehs & percentage of people in zcta area where the monitor whose
+highest formal educational attainment was some high school education \\
+hs & percentage of people in zcta area where the monitor whose highest
+formal educational attainment was completing a high school degree \\
+somecollege & percentage of people in zcta area where the monitor whose
+highest formal educational attainment was completing some college
+education \\
+associate & percentage of people in zcta area where the monitor whose
+highest formal educational attainment was completing an associate
+degree \\
+bachelor & percentage of people in zcta area where the monitor whose
+highest formal educational attainment was a bachelor's degree \\
+grad & percentage of people in zcta area where the monitor whose highest
+formal educational attainment was a graduate degree \\
+pov & percentage of people in zcta area where the monitor is that lived
+in poverty in 2008 \\
+hs\_orless & percentage of people in zcta area where the monitor whose
+highest formal educational attainment was a high school degree or less
+(sum of nohs, somehs, and hs) \\
+urc2006 \& urc2013 & urban-rural classification of the county where the
+monitor is located (1 - totally urban and 6 - completely rural) \\
+aod & Aerosol Optical Depth measurement from NASA satellite used as a
+proxy of particulate pollution \\
+\end{longtable}
+
+\subsubsection{Load packages}\label{load-packages}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(tidymodels)}
+\FunctionTok{library}\NormalTok{(sf)}
+\FunctionTok{library}\NormalTok{(maps)}
+\FunctionTok{library}\NormalTok{(rnaturalearth)}
+\FunctionTok{library}\NormalTok{(patchwork)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{The Data}\label{the-data}
+
+\subsubsection{Data Import}\label{data-import}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pm }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"pm25\_data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Data Wrangling}\label{data-wrangling}
+
+In our data wrangling, we performed factoring, data splitting, and cross
+validation. We factored \texttt{id}, \texttt{fips}, \texttt{zcta} to
+ensure they are treated as categorical values in the model. We also
+simplified the city feature to be binary, distinguishing monitors in
+cities and out of cities.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Converting to factors}
+\NormalTok{pm }\OtherTok{\textless{}{-}}\NormalTok{ pm }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{c}\NormalTok{(id, fips, zcta), as.factor)) }
+
+\CommentTok{\# Making it clear which monitor is in a city or not in a city}
+\NormalTok{pm }\OtherTok{\textless{}{-}}\NormalTok{ pm }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{city =} \FunctionTok{case\_when}\NormalTok{(city }\SpecialCharTok{==} \StringTok{"Not in a city"} \SpecialCharTok{\textasciitilde{}} \StringTok{"Not in a city"}\NormalTok{,}
+\NormalTok{                          city }\SpecialCharTok{!=} \StringTok{"Not in a city"} \SpecialCharTok{\textasciitilde{}} \StringTok{"In a city"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Data splitting is critical in model prediction, we split data into
+training and testing categories. We use the training set to train the
+model by finding patterns in the data and we use the testing set to
+evaluate the model performance. The goal of data splitting is to test
+the model on data it has never seen during training to check for
+overfitting and assess its performance. We initiate the total dataset
+(876), split ⅔ of it into the training set (584) and ⅓ of it into the
+testing set (292). To enhance our model's generalizability, we
+implemented 4-fold cross-validation using the vfold\_cv function from
+the rsample package. The 4-fold cross-validation involves partitioning
+the training data set into 4 equal folds. The model is trained on three
+folds and validated on the fourth, cycling through all folds as the
+validation set. This ensures that the model is evaluated on multiple
+subsets of the training data and provides a more robust and reliable
+model. Cross-validation also helps mitigate the risk of overfitting and
+increases its generalizability.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# setting a seed}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+
+\CommentTok{\# Splitting data into train/testing split}
+
+\NormalTok{pm\_split }\OtherTok{\textless{}{-}}\NormalTok{ rsample}\SpecialCharTok{::}\FunctionTok{initial\_split}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pm, }\AttributeTok{prop =} \DecValTok{2}\SpecialCharTok{/}\DecValTok{3}\NormalTok{)}
+\NormalTok{pm\_split}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## <Training/Testing/Total>
+## <584/292/876>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{train\_pm }\OtherTok{\textless{}{-}}\NormalTok{ rsample}\SpecialCharTok{::}\FunctionTok{training}\NormalTok{(pm\_split)}
+\NormalTok{test\_pm }\OtherTok{\textless{}{-}}\NormalTok{ rsample}\SpecialCharTok{::}\FunctionTok{testing}\NormalTok{(pm\_split)}
+ 
+\CommentTok{\# Performing cross validation}
+\NormalTok{vfold\_pm }\OtherTok{\textless{}{-}}\NormalTok{ rsample}\SpecialCharTok{::}\FunctionTok{vfold\_cv}\NormalTok{(}\AttributeTok{data =}\NormalTok{ train\_pm, }\AttributeTok{v =} \DecValTok{4}\NormalTok{)}
+\NormalTok{vfold\_pm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## #  4-fold cross-validation 
+## # A tibble: 4 x 2
+##   splits            id   
+##   <list>            <chr>
+## 1 <split [438/146]> Fold1
+## 2 <split [438/146]> Fold2
+## 3 <split [438/146]> Fold3
+## 4 <split [438/146]> Fold4
+\end{verbatim}
+
+\subsection{Analysis}\label{analysis}
+
+\subsubsection{Exploratory Data Analysis
+(EDA)}\label{exploratory-data-analysis-eda}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# loading the world map}
+\NormalTok{world }\OtherTok{\textless{}{-}} \FunctionTok{ne\_countries}\NormalTok{(}\AttributeTok{scale =} \StringTok{"medium"}\NormalTok{, }\AttributeTok{returnclass =} \StringTok{"sf"}\NormalTok{)}
+
+\CommentTok{\# plotting the monitor locations onto a world map}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ world) }\SpecialCharTok{+}
+    \FunctionTok{geom\_sf}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{coord\_sf}\NormalTok{(}\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{125}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{66}\NormalTok{), }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\FloatTok{24.5}\NormalTok{, }\DecValTok{50}\NormalTok{), }
+             \AttributeTok{expand =} \ConstantTok{FALSE}\NormalTok{)}\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pm, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ lon, }\AttributeTok{y =}\NormalTok{ lat), }\AttributeTok{size =} \DecValTok{2}\NormalTok{, }
+               \AttributeTok{shape =} \DecValTok{23}\NormalTok{, }\AttributeTok{fill =} \StringTok{"darkred"}\NormalTok{) }\SpecialCharTok{+} 
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Different Concentrations of Monitors Across the US"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Latitude"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Longitude"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{cs02_files/figure-latex/EDA-world-1.pdf}
+
+Exploring the data, we first mapped out all of the monitors onto a map
+of the US. From this map visualization, we are able to see how the
+amount of monitors is not a consistent spread across the US, but rather
+many monitors tend to be bunched up in specific areas while very sparse
+in others. Specifically, monitors tend to have large concentrations
+along the coast, possibly due to having a higher population along
+coastlines.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# counting the monitors in each state, listed from highest to lowest}
+\FunctionTok{count}\NormalTok{(pm, state) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(n))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 49 x 2
+##    state              n
+##    <chr>          <int>
+##  1 California        85
+##  2 Ohio              44
+##  3 Illinois          38
+##  4 Indiana           36
+##  5 North Carolina    35
+##  6 Pennsylvania      32
+##  7 Michigan          30
+##  8 Florida           29
+##  9 Georgia           28
+## 10 Texas             27
+## # i 39 more rows
+\end{verbatim}
+
+Looking further, specifically at the amount of monitors in each state,
+we can see the concentration of monitors is not only different across
+the country, but also different across states. For example, California
+has the highest amount of monitors at 85, which is almost double the
+amount of monitors than there is for the state with the second highest
+amount of monitors, being Ohio with 44. With this, we can see the
+inconsistency across states, and know that the varied spread of monitors
+across the US as seen in the previous world map plot is not necessarily
+dictated by state boundaries.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# creating a correlation plot for all the variables}
+\NormalTok{pm\_cor }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(pm }\SpecialCharTok{|\textgreater{}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{select\_if}\NormalTok{(is.numeric))}
+\NormalTok{corrplot}\SpecialCharTok{::}\FunctionTok{corrplot}\NormalTok{(pm\_cor, }\AttributeTok{tl.cex =} \FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{cs02_files/figure-latex/EDA-corr-1.pdf}
+
+The correlation plot above shows both strength and direction of
+correlation between all of the variables in the dataset. For example, a
+deep blue color at the intersection of two variables indicates a strong,
+positive correlation, while a deep red color at the intersection of two
+variables shows a strong, negative correlation.
+
+As the plot shows, each group of variables (i.e.~log\_pri\_length\_5000,
+log\_pri\_length\_10000, etc. would be an example of variables in the
+same group) are highly positively correlated with each other, which is
+to be expected because the variables are measuring the same parameter,
+just on different scopes (ex. log\_pri\_length\_5000 and
+log\_pri\_length\_10000 are both measuring primary road length, but for
+different radii). A few more notable observations from the plot are
+that: - CMAQ, a predictive measure of air pollution, is the most highly
+(and positively) correlated variable with value, the variable which
+reflects the actual measure of air pollution - CMAQ is more highly
+correlated with value than aod, another predictive air pollution
+variable - CMAQ is relatively strongly negatively correlated with urc
+measurements, which are a classification scale of the urban/rural level
+of an area.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# plotting the relationship between CMAQ \& urc\_2013}
+\FunctionTok{ggplot}\NormalTok{(pm, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(urc2013), }\AttributeTok{y =}\NormalTok{ CMAQ, }\AttributeTok{fill =}\NormalTok{ urc2013)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"URC 2013"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{cs02_files/figure-latex/EDA-1.pdf}
+
+Based on the previous correlation seen, we looked further into the
+relationship between CMAQ and the urc\_2013 variables and found that the
+more rural an area is (on the urban-rural classification scale, 1 is
+more urban and 6 is more rural), the lower the predicted value of air
+pollution in the area (lower CMAQ value). The opposite is also true, as
+seen in the graph above; the more urban an area is, the higher the
+predicted value of air pollution (higer CMAQ value).
+
+\subsubsection{Model}\label{model}
+
+After splitting the data into testing and training sets, we built the
+model using tidymodels. The steps start with creating ``recipe'' and
+assigning variable roles. Then, we specify the model, engine, and mode.
+Next, we fit workflow and get predictions. Finally, we use the
+predictions to find performance metrics.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Recipe with all predictors}
+\NormalTok{RF\_rec }\OtherTok{\textless{}{-}} \FunctionTok{recipe}\NormalTok{(train\_pm) }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# assign roles for the columns}
+    \FunctionTok{update\_role}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\AttributeTok{new\_role =} \StringTok{"predictor"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(value, }\AttributeTok{new\_role =} \StringTok{"outcome"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(id, }\AttributeTok{new\_role =} \StringTok{"id variable"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(}\StringTok{"fips"}\NormalTok{, }\AttributeTok{new\_role =} \StringTok{"county id"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    
+    \CommentTok{\# step\_novel assigns a previously unseen factor level to a new value }
+    \FunctionTok{step\_novel}\NormalTok{(}\StringTok{"state"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+
+    \CommentTok{\# converts string to factors}
+    \FunctionTok{step\_string2factor}\NormalTok{(}\StringTok{"state"}\NormalTok{, }\StringTok{"county"}\NormalTok{, }\StringTok{"city"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+    \CommentTok{\# removing redundancy}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"county"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"zcta"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# removing highly correlated variables}
+    \FunctionTok{step\_corr}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{())}\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# removing near zero variance predictors}
+    \FunctionTok{step\_nzv}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+The purpose of recipe() function is to provide a standardized structure
+to ensure that the data is in the correct format for modeling. The
+recipe, RF\_rec, defines a pre-processing pipeline for the training
+dataset to prepare for the model. In the recipe, we initially assign all
+variables in the dataset as predictors. Then, we override the role for
+the column value as the ``outcome'', which is our target predicting
+variable. \texttt{id} is specified as an ``id variable,'' which means it
+won't be used as a predictor or outcome. The ``fips'' column was
+assigned the new role of ``county id'' which is used for grouping but
+not for predicting.
+
+After creating the recipe(), several step\_*() functions are added to
+define specific pre-processing steps. step\_novel() is used for the
+``state'' variable to get all cross-validation folds to work by ensuring
+that any unseen level in the ``state'' variables which wasn't observed
+during training will be assigned a placeholder value to prevent errors
+such as overfitting. We then convert the string columns ``state'',
+``county'', and ``city'' to factors, making them suitable for
+categorical handling in modeling. Next, we removed columns ``county''
+and ``zcta'' from the dataset as they are redundant, removed numeric
+variables that are highly correlated with each other, and removed
+numeric predictors with near-zero variance whose values barely change
+across observations, which contribute very little to the model
+prediction.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# untuned model to find most important parameters}
+\NormalTok{RF\_PM\_model }\OtherTok{\textless{}{-}}\NormalTok{ parsnip}\SpecialCharTok{::}\FunctionTok{rand\_forest}\NormalTok{(}\AttributeTok{mtry =} \DecValTok{10}\NormalTok{, }\AttributeTok{min\_n =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{set\_engine}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_mode}\NormalTok{(}\StringTok{"regression"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+A tuned random forest model was then initialized to improve predictive
+performance. Two hyperparameters, mtry and min\_n, were included for
+tuning: mtry specifies the number of features randomly selected at each
+split in a tree, while min\_n defines the minimum number of observations
+required in a node to allow further splitting. Rather than manually
+testing different values, the tune() function was used to automate the
+hyperparameter optimization process. The model engine was set to
+``randomForest,'' specifying the algorithm for building the random
+forest, and set\_mode(``regression'') was used to indicate that the
+target variable is continuous (e.g.~air pollution levels).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# untuned workflow}
+\NormalTok{RF\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(RF\_PM\_model)}
+
+\CommentTok{\# fit with training set}
+\NormalTok{RF\_wflow\_fit }\OtherTok{\textless{}{-}}\NormalTok{ parsnip}\SpecialCharTok{::}\FunctionTok{fit}\NormalTok{(RF\_wflow, }\AttributeTok{data =}\NormalTok{ train\_pm)}
+
+\CommentTok{\# initializing a tuned random forest model}
+\NormalTok{tune\_RF\_model }\OtherTok{\textless{}{-}} \FunctionTok{rand\_forest}\NormalTok{(}\AttributeTok{mtry =} \FunctionTok{tune}\NormalTok{(), }\AttributeTok{min\_n =} \FunctionTok{tune}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_engine}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_mode}\NormalTok{(}\StringTok{"regression"}\NormalTok{)}
+
+\CommentTok{\# create workflow}
+\NormalTok{RF\_tune\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(tune\_RF\_model)}
+
+\CommentTok{\# find number of cores}
+\NormalTok{n\_cores }\OtherTok{\textless{}{-}}\NormalTok{ parallel}\SpecialCharTok{::}\FunctionTok{detectCores}\NormalTok{()}
+
+\CommentTok{\# enable parallelism}
+\NormalTok{doParallel}\SpecialCharTok{::}\FunctionTok{registerDoParallel}\NormalTok{(}\AttributeTok{cores =}\NormalTok{ n\_cores)}
+\end{Highlighting}
+\end{Shaded}
+
+A workflow was created to combine pre-processing steps and modeling into
+a single object, simplifying the machine learning pipeline. The recipe
+(RF\_rec) created earlier is now added to the workflow, ensuring that
+the data is pre-processed consistently before model training. Next,
+tune\_RF\_model is added to the workflow to enable training.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# perform hyper parameter tuning for random forest model using grid search across re samples}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{tune\_RF\_results }\OtherTok{\textless{}{-}} \FunctionTok{tune\_grid}\NormalTok{(}\AttributeTok{object =}\NormalTok{ RF\_tune\_wflow, }\AttributeTok{resamples =}\NormalTok{ vfold\_pm, }\AttributeTok{grid =} \DecValTok{20}\NormalTok{)}
+
+\CommentTok{\# results}
+\NormalTok{tune\_RF\_results }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{collect\_metrics}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 40 x 8
+##     mtry min_n .metric .estimator  mean     n std_err .config              
+##    <int> <int> <chr>   <chr>      <dbl> <int>   <dbl> <chr>                
+##  1     1    14 rmse    standard   2.00      4  0.127  Preprocessor1_Model01
+##  2     1    14 rsq     standard   0.461     4  0.0489 Preprocessor1_Model01
+##  3     2    24 rmse    standard   1.89      4  0.137  Preprocessor1_Model02
+##  4     2    24 rsq     standard   0.517     4  0.0509 Preprocessor1_Model02
+##  5     4    34 rmse    standard   1.81      4  0.144  Preprocessor1_Model03
+##  6     4    34 rsq     standard   0.551     4  0.0521 Preprocessor1_Model03
+##  7     6     6 rmse    standard   1.69      4  0.148  Preprocessor1_Model04
+##  8     6     6 rsq     standard   0.599     4  0.0538 Preprocessor1_Model04
+##  9     8    18 rmse    standard   1.70      4  0.149  Preprocessor1_Model05
+## 10     8    18 rsq     standard   0.589     4  0.0519 Preprocessor1_Model05
+## # i 30 more rows
+\end{verbatim}
+
+To improve efficiency, parallel computing is used to accelerate
+cross-validation and hyperparameter tuning during the model training
+process. The tune\_grid() function evaluates multiple combinations of
+hyperparameters defined in tune\_RF\_model. After training, the
+collect\_metrics() function extracts performance metrics, such as RMSE,
+R², and MAE, for each hyperparameter combination.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# choose the best based off rmse}
+\NormalTok{tuned\_RF\_values }\OtherTok{\textless{}{-}} \FunctionTok{select\_best}\NormalTok{(tune\_RF\_results, }\AttributeTok{metric =} \StringTok{"rmse"}\NormalTok{)}
+\NormalTok{tuned\_RF\_values}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 3
+##    mtry min_n .config              
+##   <int> <int> <chr>                
+## 1    15     2 Preprocessor1_Model09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# specify best combination from tune in workflow}
+\NormalTok{RF\_tuned\_wflow }\OtherTok{\textless{}{-}}\NormalTok{RF\_tune\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{finalize\_workflow}\NormalTok{(tuned\_RF\_values)}
+
+\CommentTok{\# fit model with those parameters on train AND test}
+\NormalTok{overallfit }\OtherTok{\textless{}{-}}\NormalTok{ RF\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{last\_fit}\NormalTok{(pm\_split)}
+
+\FunctionTok{collect\_metrics}\NormalTok{(overallfit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   .metric .estimator .estimate .config             
+##   <chr>   <chr>          <dbl> <chr>               
+## 1 rmse    standard       1.71  Preprocessor1_Model1
+## 2 rsq     standard       0.611 Preprocessor1_Model1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{test\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit)}
+\end{Highlighting}
+\end{Shaded}
+
+Finally, the select\_best() function identifies the optimal combination
+of hyperparameters based on the RMSE metric. The finalized workflow,
+updated with the best hyperparameters, is then fitted on the entire
+training set and evaluated on the test set. Predicted values for the
+test set are retrieved from the final model to assess its performance
+and generalizability.
+
+\subsubsection{Extension}\label{extension}
+
+As a reminder, our extension question is: \textbf{Can we find a more
+parsimonious model that we can utilize for various situations such as
+not having all the variables?}\\
+\strut \\
+Our extension continues from our analysis. From our analysis, we had
+fitted an untuned random forest model to find the top 10 predictors
+based on the metric of importance which is measured by the tidymodel's
+random forest model. The chart of the top 15 predictors by importance is
+shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# show the top 15 important features given by the built in function by tidymodels}
+\NormalTok{RF\_wflow\_fit }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{extract\_fit\_parsnip}\NormalTok{() }\SpecialCharTok{|\textgreater{}} 
+\NormalTok{  vip}\SpecialCharTok{::}\FunctionTok{vip}\NormalTok{(}\AttributeTok{num\_features =} \DecValTok{15}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Top 15 Feature Importance"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Importance"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{aes}\NormalTok{(}\AttributeTok{fill =}\NormalTok{ Importance) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_fill\_gradient}\NormalTok{(}\AttributeTok{low =} \StringTok{"slateblue3"}\NormalTok{, }\AttributeTok{high =} \StringTok{"slateblue1"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{cs02_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Now we can create the two random forest models similar to the main model
+that include only the top 10 and top 5 predictors.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# ensure parallelism}
+\NormalTok{n\_cores }\OtherTok{\textless{}{-}}\NormalTok{ parallel}\SpecialCharTok{::}\FunctionTok{detectCores}\NormalTok{() }
+\NormalTok{doParallel}\SpecialCharTok{::}\FunctionTok{registerDoParallel}\NormalTok{(}\AttributeTok{cores =}\NormalTok{ n\_cores)}
+
+\NormalTok{RF\_t10\_rec }\OtherTok{\textless{}{-}} \FunctionTok{recipe}\NormalTok{(train\_pm) }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# assign roles for the columns}
+    \FunctionTok{update\_role}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\AttributeTok{new\_role =} \StringTok{"predictor"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(value, }\AttributeTok{new\_role =} \StringTok{"outcome"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(id, }\AttributeTok{new\_role =} \StringTok{"id variable"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(}\StringTok{"fips"}\NormalTok{, }\AttributeTok{new\_role =} \StringTok{"county id"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+    \CommentTok{\# step\_novel assigns a previously unseen factor level to a new value }
+    \FunctionTok{step\_novel}\NormalTok{(}\StringTok{"state"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+    \CommentTok{\# converts string to factors}
+    \FunctionTok{step\_string2factor}\NormalTok{(}\StringTok{"state"}\NormalTok{, }\StringTok{"county"}\NormalTok{, }\StringTok{"city"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+
+    \CommentTok{\# removing redundancy}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"county"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"zcta"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+    \CommentTok{\# removing highly correlated variables}
+    \FunctionTok{step\_corr}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+    
+    \CommentTok{\# removing near zero variance predictors}
+    \FunctionTok{step\_nzv}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+
+    \CommentTok{\# select only top 10 predictors}
+    \FunctionTok{step\_select}\NormalTok{(value, state, CMAQ, county\_area, lat, log\_nei\_2008\_pm10\_sum\_10000,}
+\NormalTok{                lon, aod, popdens\_county, log\_nei\_2008\_pm10\_sum\_15000,}
+\NormalTok{                log\_nei\_2008\_pm10\_sum\_25000)}
+    
+\CommentTok{\# creating top 10 workflow with model made in analysis}
+\NormalTok{RF\_t10\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_t10\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(RF\_PM\_model)}
+
+\CommentTok{\# fit with the training data set}
+\NormalTok{RF\_t10\_wflow\_fit }\OtherTok{\textless{}{-}}\NormalTok{ parsnip}\SpecialCharTok{::}\FunctionTok{fit}\NormalTok{(RF\_t10\_wflow, }\AttributeTok{data =}\NormalTok{ train\_pm)}
+
+\CommentTok{\# fit with the cross validation }
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{456}\NormalTok{)}
+\NormalTok{resample\_t10\_RF\_fit }\OtherTok{\textless{}{-}}\NormalTok{ tune}\SpecialCharTok{::}\FunctionTok{fit\_resamples}\NormalTok{(RF\_t10\_wflow, vfold\_pm)}
+\FunctionTok{collect\_metrics}\NormalTok{(resample\_t10\_RF\_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 6
+##   .metric .estimator  mean     n std_err .config             
+##   <chr>   <chr>      <dbl> <int>   <dbl> <chr>               
+## 1 rmse    standard   1.65      4  0.136  Preprocessor1_Model1
+## 2 rsq     standard   0.581     4  0.0481 Preprocessor1_Model1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# initializing a tuned random forest model}
+\NormalTok{tune\_RF\_t10\_model }\OtherTok{\textless{}{-}} \FunctionTok{rand\_forest}\NormalTok{(}\AttributeTok{mtry =} \FunctionTok{tune}\NormalTok{(), }\AttributeTok{min\_n =} \FunctionTok{tune}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_engine}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_mode}\NormalTok{(}\StringTok{"regression"}\NormalTok{)}
+
+\CommentTok{\# create workflow}
+\NormalTok{RF\_t10\_tune\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_t10\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(tune\_RF\_t10\_model)}
+
+\CommentTok{\# perform hyper parameter tuning for top 10 random forest model using grid search across re samples}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{tune\_RF\_t10\_results }\OtherTok{\textless{}{-}} \FunctionTok{tune\_grid}\NormalTok{(}\AttributeTok{object =}\NormalTok{ RF\_t10\_tune\_wflow, }\AttributeTok{resamples =}\NormalTok{ vfold\_pm, }\AttributeTok{grid =} \DecValTok{20}\NormalTok{)}
+
+\CommentTok{\# results}
+\NormalTok{tune\_RF\_t10\_results }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{collect\_metrics}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 40 x 8
+##     mtry min_n .metric .estimator  mean     n std_err .config              
+##    <int> <int> <chr>   <chr>      <dbl> <int>   <dbl> <chr>                
+##  1     1    14 rmse    standard   1.73      4  0.147  Preprocessor1_Model01
+##  2     1    14 rsq     standard   0.575     4  0.0527 Preprocessor1_Model01
+##  3     1    24 rmse    standard   1.76      4  0.142  Preprocessor1_Model02
+##  4     1    24 rsq     standard   0.563     4  0.0489 Preprocessor1_Model02
+##  5     2    34 rmse    standard   1.71      4  0.151  Preprocessor1_Model03
+##  6     2    34 rsq     standard   0.575     4  0.0542 Preprocessor1_Model03
+##  7     2     6 rmse    standard   1.63      4  0.139  Preprocessor1_Model04
+##  8     2     6 rsq     standard   0.610     4  0.0431 Preprocessor1_Model04
+##  9     3    18 rmse    standard   1.65      4  0.146  Preprocessor1_Model05
+## 10     3    18 rsq     standard   0.595     4  0.0488 Preprocessor1_Model05
+## # i 30 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# select best model based on rmse}
+\NormalTok{tuned\_RF\_t10\_values}\OtherTok{\textless{}{-}} \FunctionTok{select\_best}\NormalTok{(tune\_RF\_t10\_results, }\AttributeTok{metric =} \StringTok{"rmse"}\NormalTok{)}
+
+\CommentTok{\# specify best combination from tune in workflow}
+\NormalTok{RF\_t10\_tuned\_wflow }\OtherTok{\textless{}{-}}\NormalTok{RF\_t10\_tune\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{finalize\_workflow}\NormalTok{(tuned\_RF\_t10\_values)}
+
+\CommentTok{\# fit model with those parameters on train AND test}
+\NormalTok{overallfit\_t10 }\OtherTok{\textless{}{-}}\NormalTok{ RF\_t10\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{last\_fit}\NormalTok{(pm\_split)}
+
+\NormalTok{test\_t10\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit)}
+
+\CommentTok{\# build a recipe with only top 5 features}
+\NormalTok{RF\_t5\_rec }\OtherTok{\textless{}{-}} \FunctionTok{recipe}\NormalTok{(train\_pm) }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# assign roles for the columns}
+    \FunctionTok{update\_role}\NormalTok{(}\FunctionTok{everything}\NormalTok{(), }\AttributeTok{new\_role =} \StringTok{"predictor"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(value, }\AttributeTok{new\_role =} \StringTok{"outcome"}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(id, }\AttributeTok{new\_role =} \StringTok{"id variable"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{update\_role}\NormalTok{(}\StringTok{"fips"}\NormalTok{, }\AttributeTok{new\_role =} \StringTok{"county id"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    
+    \CommentTok{\# step\_novel assigns a previously unseen factor level to a new value }
+    \FunctionTok{step\_novel}\NormalTok{(}\StringTok{"state"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    
+    \CommentTok{\# converts string to factors}
+    \FunctionTok{step\_string2factor}\NormalTok{(}\StringTok{"state"}\NormalTok{, }\StringTok{"county"}\NormalTok{, }\StringTok{"city"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  
+    \CommentTok{\# removing redundancy}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"county"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{step\_rm}\NormalTok{(}\StringTok{"zcta"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# removing highly correlated variables}
+    \FunctionTok{step\_corr}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{())}\SpecialCharTok{|\textgreater{}}
+    \CommentTok{\# removing near zero variance predictors}
+    \FunctionTok{step\_nzv}\NormalTok{(}\FunctionTok{all\_numeric}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+    
+    \CommentTok{\# select only top 5 predictors}
+    \FunctionTok{step\_select}\NormalTok{(value, state, CMAQ, county\_area, lat, log\_nei\_2008\_pm10\_sum\_10000)}
+
+\CommentTok{\# creating top 5 workflow with model made in analysis}
+\NormalTok{RF\_t5\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_t5\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(RF\_PM\_model)}
+
+\CommentTok{\# fit with the training data set}
+\NormalTok{RF\_t5\_wflow\_fit }\OtherTok{\textless{}{-}}\NormalTok{ parsnip}\SpecialCharTok{::}\FunctionTok{fit}\NormalTok{(RF\_t5\_wflow, }\AttributeTok{data =}\NormalTok{ train\_pm)}
+
+\CommentTok{\# fit with the cross validation }
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{456}\NormalTok{)}
+\NormalTok{resample\_t5\_RF\_fit }\OtherTok{\textless{}{-}}\NormalTok{ tune}\SpecialCharTok{::}\FunctionTok{fit\_resamples}\NormalTok{(RF\_t5\_wflow, vfold\_pm)}
+\FunctionTok{collect\_metrics}\NormalTok{(resample\_t5\_RF\_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 6
+##   .metric .estimator  mean     n std_err .config             
+##   <chr>   <chr>      <dbl> <int>   <dbl> <chr>               
+## 1 rmse    standard   1.65      4  0.135  Preprocessor1_Model1
+## 2 rsq     standard   0.581     4  0.0518 Preprocessor1_Model1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# initialize a tuned random forest model}
+\NormalTok{tune\_RF\_t5\_model }\OtherTok{\textless{}{-}} \FunctionTok{rand\_forest}\NormalTok{(}\AttributeTok{mtry =} \FunctionTok{tune}\NormalTok{(), }\AttributeTok{min\_n =} \FunctionTok{tune}\NormalTok{()) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_engine}\NormalTok{(}\StringTok{"randomForest"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{set\_mode}\NormalTok{(}\StringTok{"regression"}\NormalTok{)}
+
+\CommentTok{\# create workflow}
+\NormalTok{RF\_t5\_tune\_wflow }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{workflow}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_recipe}\NormalTok{(RF\_t5\_rec) }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  workflows}\SpecialCharTok{::}\FunctionTok{add\_model}\NormalTok{(tune\_RF\_t5\_model)}
+
+\CommentTok{\# perform hyper parameter tuning for top 5 random forest model using grid search across re samples}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{tune\_RF\_t5\_results }\OtherTok{\textless{}{-}} \FunctionTok{tune\_grid}\NormalTok{(}\AttributeTok{object =}\NormalTok{ RF\_t5\_tune\_wflow, }\AttributeTok{resamples =}\NormalTok{ vfold\_pm, }\AttributeTok{grid =} \DecValTok{20}\NormalTok{)}
+
+\CommentTok{\# results}
+\NormalTok{tune\_RF\_t5\_results }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{collect\_metrics}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 40 x 8
+##     mtry min_n .metric .estimator  mean     n std_err .config              
+##    <int> <int> <chr>   <chr>      <dbl> <int>   <dbl> <chr>                
+##  1     1    14 rmse    standard   1.72      4  0.131  Preprocessor1_Model01
+##  2     1    14 rsq     standard   0.570     4  0.0455 Preprocessor1_Model01
+##  3     1    24 rmse    standard   1.74      4  0.135  Preprocessor1_Model02
+##  4     1    24 rsq     standard   0.561     4  0.0470 Preprocessor1_Model02
+##  5     1    34 rmse    standard   1.77      4  0.139  Preprocessor1_Model03
+##  6     1    34 rsq     standard   0.546     4  0.0484 Preprocessor1_Model03
+##  7     1     6 rmse    standard   1.69      4  0.135  Preprocessor1_Model04
+##  8     1     6 rsq     standard   0.583     4  0.0450 Preprocessor1_Model04
+##  9     2    18 rmse    standard   1.67      4  0.137  Preprocessor1_Model05
+## 10     2    18 rsq     standard   0.579     4  0.0503 Preprocessor1_Model05
+## # i 30 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# select best model based on rmse}
+\NormalTok{tuned\_RF\_t5\_values}\OtherTok{\textless{}{-}} \FunctionTok{select\_best}\NormalTok{(tune\_RF\_t5\_results, }\AttributeTok{metric =} \StringTok{"rmse"}\NormalTok{)}
+
+\CommentTok{\# specify best combination from tune in workflow}
+\NormalTok{RF\_t5\_tuned\_wflow }\OtherTok{\textless{}{-}}\NormalTok{RF\_t5\_tune\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{finalize\_workflow}\NormalTok{(tuned\_RF\_t5\_values)}
+
+\CommentTok{\# fit model with those parameters on train AND test}
+\NormalTok{overallfit\_t5 }\OtherTok{\textless{}{-}}\NormalTok{ RF\_t5\_wflow }\SpecialCharTok{|\textgreater{}}
+\NormalTok{  tune}\SpecialCharTok{::}\FunctionTok{last\_fit}\NormalTok{(pm\_split)}
+
+\NormalTok{test\_t5\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Results \& Discussion}\label{results-discussion}
+
+For our results, we will be using the following metrics:
+
+\begin{itemize}
+\tightlist
+\item
+  \(adj. r^2\): The adjusted r-squared value, how much a model
+  corresponds to the variance of the predicted values, adjusted to
+  account for the amount of predictors. We use this value to compare the
+  models on a scale of accuracy while also taking into consideration
+  that less features are better. This is a good measure for how
+  parsimonious a model is.
+\item
+  \(rmse\): Root mean squared error, the average error between all
+  predicted and truth values, a metric of distance.
+\end{itemize}
+
+We ran our random forest models on the whole data set to get the
+following tables:
+
+\begin{verbatim}
+## overall model
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   .metric .estimator .estimate .config             
+##   <chr>   <chr>          <dbl> <chr>               
+## 1 rmse    standard       1.71  Preprocessor1_Model1
+## 2 rsq     standard       0.611 Preprocessor1_Model1
+\end{verbatim}
+
+\begin{verbatim}
+## top10 model
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   .metric .estimator .estimate .config             
+##   <chr>   <chr>          <dbl> <chr>               
+## 1 rmse    standard       1.84  Preprocessor1_Model1
+## 2 rsq     standard       0.532 Preprocessor1_Model1
+\end{verbatim}
+
+\begin{verbatim}
+## top5 model
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   .metric .estimator .estimate .config             
+##   <chr>   <chr>          <dbl> <chr>               
+## 1 rmse    standard       1.93  Preprocessor1_Model1
+## 2 rsq     standard       0.497 Preprocessor1_Model1
+\end{verbatim}
+
+However, there isn't a built-in measurement for \(adj. r^2\) in
+tidyverse so we would need to create a function to do it ourselves:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# function for calculating adjusted r squared (chatgpt generated)}
+\NormalTok{calculate\_adj\_r\_squared\_tidy }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(predictions, truth\_col, estimate\_col, num\_predictors) \{}
+  
+  \CommentTok{\# Compute R{-}squared}
+\NormalTok{  rsq }\OtherTok{\textless{}{-}} \FunctionTok{rsq\_vec}\NormalTok{(truth\_col, estimate\_col)}
+  
+  \CommentTok{\# Number of observations}
+\NormalTok{  n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(predictions)}
+  
+  \CommentTok{\# Number of predictors}
+\NormalTok{  p }\OtherTok{\textless{}{-}}\NormalTok{ num\_predictors}
+  
+  \CommentTok{\# Compute Adjusted R{-}squared}
+\NormalTok{  adj\_r\_squared }\OtherTok{\textless{}{-}} \DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ ((}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ rsq) }\SpecialCharTok{*}\NormalTok{ (n }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ (n }\SpecialCharTok{{-}}\NormalTok{ p }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{))}
+  
+  \FunctionTok{return}\NormalTok{(adj\_r\_squared)}
+\NormalTok{\}}
+
+
+\CommentTok{\# we must get the number of predictors for each model using a function (chatgpt generated)}
+\NormalTok{get\_predictor\_details }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(workflow\_fit) \{}
+  \CommentTok{\# Extract the final model fit from the workflow}
+\NormalTok{  final\_model }\OtherTok{\textless{}{-}}\NormalTok{ workflows}\SpecialCharTok{::}\FunctionTok{extract\_fit\_parsnip}\NormalTok{(workflow\_fit)}
+  
+  \CommentTok{\# Extract predictor importance}
+\NormalTok{  predictor\_importance }\OtherTok{\textless{}{-}}\NormalTok{ final\_model}\SpecialCharTok{$}\NormalTok{fit}\SpecialCharTok{$}\NormalTok{importance}
+  
+  \CommentTok{\# Get the names of the predictors}
+\NormalTok{  predictor\_names }\OtherTok{\textless{}{-}} \FunctionTok{rownames}\NormalTok{(predictor\_importance)}
+  
+  \CommentTok{\# Check the number of predictors}
+\NormalTok{  num\_predictors }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(predictor\_names)}
+  
+  \CommentTok{\# Return results as a list}
+  \FunctionTok{list}\NormalTok{(}
+    \AttributeTok{num\_predictors =}\NormalTok{ num\_predictors,}
+    \AttributeTok{predictor\_names =}\NormalTok{ predictor\_names,}
+    \AttributeTok{predictor\_importance =}\NormalTok{ predictor\_importance}
+\NormalTok{  )}
+\NormalTok{\}}
+
+\CommentTok{\# Collect predictions from the fitted t10 model}
+\NormalTok{test\_t10\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit\_t10)}
+\CommentTok{\# Get the number of predictors of the model using a function}
+\NormalTok{num\_predictors\_t10 }\OtherTok{\textless{}{-}} \FunctionTok{get\_predictor\_details}\NormalTok{(overallfit\_t10)}\SpecialCharTok{$}\NormalTok{num\_predictors}
+\CommentTok{\# Use the function to calculate adj r\^{}2}
+\NormalTok{adj\_r\_squared\_t10 }\OtherTok{\textless{}{-}} \FunctionTok{calculate\_adj\_r\_squared\_tidy}\NormalTok{(}
+  \AttributeTok{predictions =}\NormalTok{ test\_t10\_predictions,}
+  \AttributeTok{truth\_col =}\NormalTok{ test\_t10\_predictions}\SpecialCharTok{$}\NormalTok{value,}
+  \AttributeTok{estimate\_col =}\NormalTok{ test\_t10\_predictions}\SpecialCharTok{$}\NormalTok{.pred,}
+  \AttributeTok{num\_predictors =}\NormalTok{ num\_predictors\_t10}
+\NormalTok{)}
+
+\CommentTok{\# Collect predictions from the fitted t5 model}
+\NormalTok{test\_t5\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit\_t5)}
+\CommentTok{\# Get the number of predictors of the model using a function}
+\NormalTok{num\_predictors\_t5 }\OtherTok{\textless{}{-}} \FunctionTok{get\_predictor\_details}\NormalTok{(overallfit\_t5)}\SpecialCharTok{$}\NormalTok{num\_predictors}
+\CommentTok{\# Use the function to calculate adj r\^{}2}
+\NormalTok{adj\_r\_squared\_t5 }\OtherTok{\textless{}{-}} \FunctionTok{calculate\_adj\_r\_squared\_tidy}\NormalTok{(}
+  \AttributeTok{predictions =}\NormalTok{ test\_t5\_predictions,}
+  \AttributeTok{truth\_col =}\NormalTok{ test\_t5\_predictions}\SpecialCharTok{$}\NormalTok{value,}
+  \AttributeTok{estimate\_col =}\NormalTok{ test\_t5\_predictions}\SpecialCharTok{$}\NormalTok{.pred,}
+  \AttributeTok{num\_predictors =}\NormalTok{ num\_predictors\_t10}
+\NormalTok{)}
+
+\CommentTok{\# Collect predictions from the fitted overall model}
+\NormalTok{test\_overall\_predictions }\OtherTok{\textless{}{-}} \FunctionTok{collect\_predictions}\NormalTok{(overallfit)}
+\CommentTok{\# Get the number of predictors of the model using a function}
+\NormalTok{num\_predictors\_overall }\OtherTok{\textless{}{-}} \FunctionTok{get\_predictor\_details}\NormalTok{(overallfit)}\SpecialCharTok{$}\NormalTok{num\_predictors}
+\CommentTok{\# Use the function to calculate adj r\^{}2}
+\NormalTok{adj\_r\_squared\_overall }\OtherTok{\textless{}{-}} \FunctionTok{calculate\_adj\_r\_squared\_tidy}\NormalTok{(}
+  \AttributeTok{predictions =}\NormalTok{ test\_overall\_predictions,}
+  \AttributeTok{truth\_col =}\NormalTok{ test\_overall\_predictions}\SpecialCharTok{$}\NormalTok{value,}
+  \AttributeTok{estimate\_col =}\NormalTok{ test\_overall\_predictions}\SpecialCharTok{$}\NormalTok{.pred,}
+  \AttributeTok{num\_predictors =}\NormalTok{ num\_predictors\_t10}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## overall adj. r^2
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.5966578
+\end{verbatim}
+
+\begin{verbatim}
+## t10 adj. r^2
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.5157635
+\end{verbatim}
+
+\begin{verbatim}
+## t5 adj. r^2
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 0.4787824
+\end{verbatim}
+
+Our results here are what we expected. The less features we use, the
+less accurate our models are when predicting for the \texttt{value}.
+Here's the breakdown for each model:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{overall} baseline model: The overall random forest model that
+  include all the predictors has the lowest \(RMSE\) of 1.72 and highest
+  \(adj. R^2\) of 0.594. This would mean that the baseline model has the
+  best accuracy and explains for about 59.4\% of the variance in the
+  target variable \texttt{value}. This will be our baseline model.
+\item
+  \texttt{top10} model: The model with top 10 important features had its
+  \(RMSE\) slightly increase to 1.85, indicating a slightly reduced
+  accuracy. The model's \(adj. R^2\) dropped to 0.510, which shows that
+  less variance of \texttt{value} (51\%) is explained by the model.
+\item
+  \texttt{top5} models: The model with top 5 important features dropped
+  in acurracy even more than the \texttt{top10} model to a \texttt{RMSE}
+  of 1.92. We also saw the \(adj. R^2\) drop to 0.479, meaning the model
+  explains about 48\% of the variance of \texttt{value}.
+\end{itemize}
+
+As we decrease the amount of features, there is a decrease in accuracy
+and \(adj. R^2\). This trade-off may be acceptable in some cases where
+model simplicity is needed where monitors only collect a select amount
+of variables. To explicitly answer the questions, we can reasonably
+predict the US annual average air pollution concentration with
+reasonable accuracy of 1.72 \(RMSE\) and 0.594 \(adj. R^2\) using our
+baseline model, explaining 59.4\% of the variance in air pollution
+levels. The top-10 and top-5 models demonstrates a trade-off that a
+simpler model requires sacrificing some accuracy and explanatory power.
+For the most accurate and reliable prediction, the baseline model
+remains the best choice. However, if simpler approach is needed, both
+the top 10 and top 5 models offer practical approaches with reasonable
+accuracies, with the top 5 being slightly less accurate than the top 10
+model (\texttt{RMSE}: 1.92 vs 1.85).
+
+\subsection{Conclusion}\label{conclusion}
+
+Through the random forest model, our team demonstrated we can predict
+the U.S. annual average air pollution concentration with an average
+error of 1.72, and find a more parsimonious model through feature
+selection with average errors of 1.85 and 1.92; these models can raise
+awareness and detect these undetectable threats in the U.S. As stated
+above, we conclude that the parsimonious model with top ten best
+features is comparable to our overall model, an approximate 0.1 error
+difference. Therefore, if an individual cannot gather all sixteen
+predictors to predict the air pollution concentration, our top ten model
+is more practical and flexible to utilize with less predictors to
+measure.
+
+\subsection{Limitations}\label{limitations}
+
+Although our model may provide a general accuracy in predicting the
+concentration, there are still several factors to consider when using
+our model as a representation. It is important to consider that the data
+used for this study is a decade old and solely measured in the U.S.. Air
+pollution readings may fluctuate throughout the years and may serve our
+model as ineffective for future readings. Recent data can be analyzed
+and implemented into our model for more accurate predictions. Adding on,
+as the monitor measurements are solely in the U.S., this is not a
+universal model that we can utilize for other parts of the world. Stated
+previously, it is also important to consider that our data does not
+include specific details on the composition of particulate matter. There
+are several types of particulates that should be considered as they may
+have a range of effects on human health. We worked on this project
+through a scientific lens and did not focus on factors from other
+perspectives. Our analysis is derived from data focused on major biomes
+in the United States (e.g., states, cities, and counties) and excludes
+the smaller regions (microbiomes) within. History of racism throughout
+multiple parts of the United States have made some of these microbiomes
+- usually non-white neighborhoods - have significantly higher indexes of
+air pollution compared to white neighborhoods. For instance, in Los
+Angeles, infrastructure projects were intentionally built through Black
+and Latino neighborhoods often displacing families and subjecting the
+people within these communities to higher exposure to pollutants
+\footnote{\url{https://afrolanews.org/2023/06/unequal-air-the-pollution-legacy-of-segregation-and-the-freeway-boom-in-los-angeles/}}.
+As a result, grouping several regions within a city may greatly skew the
+calculation of the annual average and misrepresent the region's general
+air quality. Lastly, we mainly focused on outdoor exposure to pollution
+and did not take into account individual exposure in private
+environments and other individual activity. It is said that air
+fresheners, gas stoves, and exposure to tobacco smoke can also
+negatively impact one's health in the long term \footnote{\url{https://www.epa.gov/indoor-air-quality-iaq/inside-story-guide-indoor-air-quality\#}:\textasciitilde:text=Some\%20sources\%2C\%20such\%20as\%20building,after\%20some\%20of\%20these\%20activities.}.
+
+\end{document}
