@@ -1,1 +1,5 @@
 View the project directly at:[https://jxue03.github.io/COGS137_Project2/]
+
+• This project aimed to predict annual air pollution concentrations across the U.S. by extimating PM₂.₅ levels using machine learning techniques. Data from 876 monitoring stations across 45 states were wrangled and merged, incorporating features like CMAQ model outputs, satellite-derived aerosol optical depth (AOD), ZIP-level demographics, land use, and road density.   
+• Conducted exploratory data analysis (EDA) to map monitor distributions, identify clustering and urban–rural disparities, and used heatmaps and correlation matrices to reduce redundancy and multicollinearity.  
+• Random forest regression models were built using the tidymodels framework in R. The full model achieved an RMSE of 1.72 and explained 59.4% of variance. Reduced-feature models using the top 10 or 5 predictors performed similarly (RMSEs of 1.85 and 1.92). Results show that the simplified models captured substantial variance while maintaining effective predictive power for air pollution.
